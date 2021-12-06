@@ -1,4 +1,4 @@
-# kubectl-aliases
+# kubernetes-aliases
 Some usefull kubectl (and other kubernetes releated) aliases, making it less painfull typing the whole command.
 
 ```bash
