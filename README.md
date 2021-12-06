@@ -2,7 +2,20 @@
 Some usefull kubectl (and other kubernetes releated) aliases, making it less painfull to type the whole command.
 
 ```bash
-# Kubernetes aliases
+# Kubernetes aliases and functions
+function kdp(){
+        pod=$1
+        sudo kubectl describe pod $pod -n $(sudo kubectl get pods -A | grep $pod | awk '{print $1}')
+}
+function kl(){
+        pod=$1
+        sudo kubectl logs $pod -n $(sudo kubectl get pods -A | grep $pod | awk '{print $1}')
+}
+function kd(){
+        resource=$1
+        resource_name=$2
+        sudo kubectl describe $resource $resource_name -n $(sudo kubectl get $resource -A | grep $resource_name | awk '{print $1}')
+}
 function kg(){
         resource=$1
         namespace=$2
