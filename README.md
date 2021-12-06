@@ -1,7 +1,8 @@
 # kubectl-aliases
 Some usefull kubectl (and other kubernetes releated) aliases, making it less painfull to type the whole command.
 
-
+```bash
+# Kubernetes aliases
 function kg(){
         resource=$1
         namespace=$2
@@ -50,9 +51,6 @@ function krtn(){
         fi
 }
 
-
-# Kubernetes aliases
-
 alias k='sudo kubectl'
 alias kubectl='sudo kubectl'
 
@@ -73,3 +71,4 @@ source <(kubectl completion bash)
 complete -F __start_kubectl k
 source <(helm completion bash)
 
+```
