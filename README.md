@@ -85,3 +85,9 @@ complete -F __start_kubectl k
 source <(helm completion bash)
 
 ```
+
+# Other Usefull commands
+
+```
+ssh -i <pem if needed> -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null <user-name>@<IP>
+```
