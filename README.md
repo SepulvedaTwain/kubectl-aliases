@@ -11,6 +11,10 @@ function kl(){
         pod=$1
         sudo kubectl logs $pod -n $(sudo kubectl get pods -A | grep $pod | awk '{print $1}')
 }
+function klf(){
+        pod=$1
+        sudo kubectl logs $pod -n $(sudo kubectl get pods -A | grep $pod | awk '{print $1}') -f
+}
 function kd(){
         resource=$1
         resource_name=$2
@@ -35,6 +39,15 @@ function kgp(){
                 sudo kubectl get pods -n $namespace
         fi
 }
+function kgpo(){
+        namespace=$1
+        if [ -z "$namespace" ]
+        then
+                sudo kubectl get pods -o wide
+        else
+                sudo kubectl get pods -n $namespace -o wide
+        fi
+}
 function wkgp(){
         namespace=$1
         if [ -z "$namespace" ]
@@ -42,6 +55,16 @@ function wkgp(){
                 watch sudo kubectl get pods
         else
                 watch sudo kubectl get pods -n $namespace
+        fi
+
+}
+function wkgpo(){
+        namespace=$1
+        if [ -z "$namespace" ]
+        then
+                watch sudo kubectl get pods -o wide
+        else
+                watch sudo kubectl get pods -n $namespace -o wide
         fi
 
 }
@@ -61,6 +84,16 @@ function krtn(){
                 echo "no node provided.. exiting.."
         else
                 sudo kubectl taint nodes $node_name key1-
+        fi
+}
+
+function ke(){
+        pod=$1
+        if [ -z $pod ] ;
+        then
+                echo "no pod provided.. exiting.."
+        else
+                sudo kubectl exec -it $pod -n $(sudo kubectl get pods -A | grep $pod | awk '{print $1}') -- bash
         fi
 }
 
