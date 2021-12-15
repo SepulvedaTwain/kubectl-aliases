@@ -1,5 +1,6 @@
 # kubernetes-aliases
 Some usefull kubectl (and other kubernetes releated) aliases, making it less painfull typing the whole command.
+
 You can either add copy paste these functions and aliases to your '.bashrc' or create a new file e.g. '.kube_aliases' and add this line to your '.bashrc' ```source kube_aliases```. After you save the file, you can type ```source .bashrc``` to your terminal to use them on the spot.
 
 ```bash
