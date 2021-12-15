@@ -88,6 +88,6 @@ source <(helm completion bash)
 
 # Other Usefull commands
 
-```
+``` bash
 ssh -i <pem if needed> -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null <user-name>@<IP>
 ```
